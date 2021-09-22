@@ -1,13 +1,9 @@
 <template>
-  <div >
-    <h2>My todolist</h2>
-      <ul>
-      <li v-bind:key="todo.id" v-for="todo in allTodos">
-        <Todo v-bind:todo="todo" />
-      </li>
-    </ul>
+  <div v-for="post in posts" v-bind:key="post.id">
+    <Todo  v-bind:todo='post'/>
   </div>
 </template>
+
 <script>
 import Todo from './Todo.vue';
 
@@ -16,10 +12,13 @@ export default {
   components: {
     Todo,
   },
-  props: [
-    'allTodos',
-  ],
+  computed: {
+    posts() {
+      return this.$store.getters.posts;
+    },
+  },
+  created() {
+    this.$store.dispatch('loadPosts');
+  },
 };
 </script>
-<style scoped>
-</style>

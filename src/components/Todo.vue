@@ -2,6 +2,8 @@
   <div>
     <p>{{ todo.title }}</p>
     <p>{{ todo.completed }}</p>
+    <button class="btn btn-primary">Test</button>
+
   </div>
 </template>
 <script>
@@ -10,7 +12,9 @@ export default {
   props: [
     'todo',
   ],
+
 };
+
 </script>
 <style scoped>
 </style>

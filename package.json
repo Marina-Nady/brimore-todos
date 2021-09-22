@@ -6,13 +6,17 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "lint": "eslint --fix --ext .js,.jsx ."
   },
   "dependencies": {
+    "@popperjs/core": "^2.10.1",
     "ant-design-vue": "^2.2.7",
     "axios": "^0.21.4",
+    "bootstrap": "^5.1.1",
     "core-js": "^3.6.5",
     "vue": "^3.0.0",
+    "vue-axios": "^3.3.7",
+    "vue-use": "^0.2.0",
     "vuex": "^4.0.2"
   },
   "devDependencies": {
