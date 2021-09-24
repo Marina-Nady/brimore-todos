@@ -21,6 +21,9 @@ const store = createStore({
         completed: false,
       });
     },
+    DELETE_TODO(state, id) {
+      state.todos.splice(id, 1);
+    },
   },
   actions: {
     async loadTodos({ commit }) {
@@ -36,6 +39,14 @@ const store = createStore({
         const response = await axios.post('http://jsonplaceholder.typicode.com/todos', data);
         this.state.newTodo = data;
         commit('ADD_TODO', response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async deleteTodo({ commit }, id) {
+      try {
+        const response = await axios.delete(`http://jsonplaceholder.typicode.com/todos/${id}`);
+        commit('DELETE_TODO', response.data);
       } catch (error) {
         console.log(error);
       }
