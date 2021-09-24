@@ -1,9 +1,8 @@
 <template>
   <div>
-    <p>{{ todo.title }}</p>
+    <input type="checkbox">
+    <span class="m-3">{{ todo.title }}</span>
     <p>{{ todo.completed }}</p>
-    <button class="btn btn-primary">Test</button>
-
   </div>
 </template>
 <script>
@@ -14,7 +13,6 @@ export default {
   ],
 
 };
-
 </script>
 <style scoped>
 </style>

@@ -1,7 +1,7 @@
 <template>
-  <div v-for="post in posts" v-bind:key="post.id">
-    <Todo  v-bind:todo='post'/>
-  </div>
+  <li v-for="todo in todos" v-bind:key="todo.id">
+    <Todo  v-bind:todo='todo'/>
+  </li>
 </template>
 
 <script>
@@ -13,12 +13,12 @@ export default {
     Todo,
   },
   computed: {
-    posts() {
-      return this.$store.getters.posts;
+    todos() {
+      return this.$store.getters.todos;
     },
   },
   created() {
-    this.$store.dispatch('loadPosts');
+    this.$store.dispatch('loadTodos');
   },
 };
 </script>

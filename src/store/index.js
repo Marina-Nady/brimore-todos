@@ -5,21 +5,37 @@ import { createStore } from 'vuex';
 const store = createStore({
   state: {
     todos: [],
+    newTodo: '',
   },
 
   getters: {
-    posts: (state) => state.todos,
+    todos: (state) => state.todos,
   },
   mutations: {
-    SET_ITEMS(state, todos) {
+    GET_TODO(state, todos) {
       state.todos = todos;
+    },
+    ADD_TODO(state) {
+      state.todos.unshift({
+        title: state.newTodo,
+        completed: false,
+      });
     },
   },
   actions: {
-    async loadPosts({ commit }) {
+    async loadTodos({ commit }) {
       try {
         const response = await axios.get('http://jsonplaceholder.typicode.com/todos');
-        commit('SET_ITEMS', response.data);
+        commit('GET_TODO', response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async addTodo({ commit }, data) {
+      try {
+        const response = await axios.post('http://jsonplaceholder.typicode.com/todos', data);
+        this.state.newTodo = data;
+        commit('ADD_TODO', response.data);
       } catch (error) {
         console.log(error);
       }
