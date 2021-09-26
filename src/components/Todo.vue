@@ -1,18 +1,19 @@
 <template>
   <div>
-    <input type="checkbox">
-    <span class="m-3">{{ todo.title }}</span>
+    <ToggleTodo v-bind:todoID='todo.id'/>
+    <span v-bind:class="{ 'completed': todo.completed }">{{ todo.title }}</span>
     <DeleteTodo v-bind:todoID='todo.id'/>
-    <p>{{ todo.completed }}</p>
   </div>
 </template>
 <script>
 import DeleteTodo from './DeleteTodo.vue';
+import ToggleTodo from './ToggleTodo.vue';
 
 export default {
   name: 'Todo',
   components: {
     DeleteTodo,
+    ToggleTodo,
   },
   props: [
     'todo',
@@ -21,4 +22,7 @@ export default {
 };
 </script>
 <style scoped>
+ .completed {
+    text-decoration: line-through;
+  }
 </style>

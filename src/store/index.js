@@ -22,7 +22,13 @@ const store = createStore({
       });
     },
     DELETE_TODO(state, id) {
-      state.todos.splice(id, 1);
+      state.todos = state.todos.filter((todo) => todo.id !== id);
+    },
+    TOGGLE_TODO(state, todo) {
+      const todoEdit = todo;
+      const item = state.todos.find((t) => t.id === todoEdit.id);
+      item.completed = !item.completed;
+      // console.log(item);
     },
   },
   actions: {
@@ -46,7 +52,17 @@ const store = createStore({
     async deleteTodo({ commit }, id) {
       try {
         const response = await axios.delete(`http://jsonplaceholder.typicode.com/todos/${id}`);
-        commit('DELETE_TODO', response.data);
+        commit('DELETE_TODO', id);
+        console.log(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async toggleTodo({ commit }, id) {
+      try {
+        const response = await axios.patch(`http://jsonplaceholder.typicode.com/todos/${id}`);
+        commit('TOGGLE_TODO', response.data);
+        // console.log(response.data);
       } catch (error) {
         console.log(error);
       }

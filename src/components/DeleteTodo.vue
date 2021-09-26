@@ -11,8 +11,8 @@ export default {
   ],
   methods: {
     Delete() {
-      console.log(this.todoID);
-      this.$store.dispatch('deleteTodo');
+      //  console.log(this.todoID);
+      this.$store.dispatch('deleteTodo', this.todoID);
     },
   },
 

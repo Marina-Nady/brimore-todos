@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="text-center">
     <h1>Welcome to Todo App</h1>
     <AddTodo/>
     <ul>
