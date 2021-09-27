@@ -1,8 +1,8 @@
 <template>
-  <div class="text-center">
+  <div class="text-center m-3">
     <h1>Welcome to Todo App</h1>
     <AddTodo/>
-    <ul>
+    <ul class="w-75 m-auto">
     <AllTodos/>
     </ul>
   </div>

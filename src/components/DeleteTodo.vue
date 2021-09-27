@@ -1,6 +1,8 @@
 <template>
   <div class="d-inline-block ">
-      <button class="btn btn-danger" v-on:click="Delete()">X</button>
+      <button class="btn btn-outline-danger border-0 delete" v-on:click="Delete()">
+        <i class="fa fa-trash" aria-hidden="true"></i>
+      </button>
   </div>
 </template>
 <script>
@@ -19,4 +21,9 @@ export default {
 };
 </script>
 <style scoped>
+  .delete{
+      position: absolute;
+      right: 1%;
+      top: 10%;
+  }
 </style>

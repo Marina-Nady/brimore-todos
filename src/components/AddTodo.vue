@@ -1,7 +1,7 @@
 <template>
-  <div>
-      <input v-model="addTodo" type="text">
-      <button type="submit" class="btn btn-primary" v-on:click="Add()">Add</button>
+  <div class="m-3">
+      <input v-model="addTodo" type="text" class="p-1">
+      <button type="submit" class="btn btn-primary m-2" v-on:click="Add()">Add</button>
   </div>
 </template>
 <script>

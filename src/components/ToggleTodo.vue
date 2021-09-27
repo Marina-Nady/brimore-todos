@@ -1,5 +1,5 @@
 <template>
-  <div class="d-inline-block ">
+  <div class="d-inline-block m-2">
     <input type="checkbox" v-on:change="Toggle()">
   </div>
 </template>

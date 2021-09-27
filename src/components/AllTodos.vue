@@ -1,5 +1,5 @@
 <template>
-  <li v-for="todo in todos" v-bind:key="todo.id">
+  <li class="d-flex align-items-center list-group-item" v-for="todo in todos" v-bind:key="todo.id">
     <Todo  v-bind:todo='todo'/>
   </li>
 </template>
